@@ -1,49 +1,30 @@
-name: CI/CD Teste DevOps
+name: SonarQube Scan
 
 on:
   push:
     branches:
       - main
-      - develop
-      - homolog
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
+  sonar_scan:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do código
-        uses: actions/checkout@v3
-
-      - name: Validar arquivos do site
-        run: ls -R
-
-  sonar:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout do código
-        uses: actions/checkout@v3
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+      - uses: actions/checkout@v4
         with:
-          args: >
-            -Dsonar.projectKey=Teste-Devops
-            -Dsonar.organization=itsleocamargo
-            -Dsonar.sources=.
+          fetch-depth: 0 # Required for SonarQube to analyze the full history
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5.0.0 # Use the latest version
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: sonar
-    steps:
-      - name: Checkout do código
-        uses: actions/checkout@v3
-
-      - name: Deploy para Azure Storage
-        uses: azure/storage-blob-upload-action@v1
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} # Only if using SonarQube Server
         with:
-          connection-string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
-          container-name: '$web'
-          source: '.'
+          projectBaseDir: . # Specify the base directory of your project if needed
+          # You can add other SonarQube analysis parameters here, e.g.:
+          # sonar.projectKey: "your_project_key"
+          # sonar.projectName: "Your Project Name"
+          # sonar.sources: "src"
+          # sonar.tests: "tests"
