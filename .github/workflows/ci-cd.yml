@@ -29,7 +29,7 @@ jobs:
           # Define propriedades adicionais do scanner (opcional)
           args: >
             -Dsonar.projectKey=ItsLeoCamargo_Teste-Devops
-            -Dsonar.organization=ItsLeoCamargo
+            -Dsonar.organization=itsleocamargo
             -Dsonar.sources=.
             -Dsonar.sourceEncoding=UTF-8
             
