@@ -14,19 +14,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Required for SonarQube to analyze the full history
+          # fetch-depth: 0 # Esta linha não é estritamente necessária se você não precisa da história completa.
+          fetch-depth: 0 # Mantendo conforme seu exemplo, para garantir.
 
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5.0.0 # Use the latest version
+        uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-           # Only if using SonarQube Server
+          # Não é necessário definir SONAR_HOST_URL ou SONAR_ORGANIZATION em 'env'
+          # se você estiver usando a ação oficial do SonarSource com SonarCloud.
         with:
-          sonar.projectKey: Teste-Devops
-          sonar.organization: itsleocamargo
-          projectBaseDir: . # Specify the base directory of your project if needed
-          # You can add other SonarQube analysis parameters here, e.g.:
-          # sonar.projectKey: "your_project_key"
-          # sonar.projectName: "Your Project Name"
-          # sonar.sources: "src"
-          # sonar.tests: "tests"
+          # Propriedades obrigatórias definidas corretamente aqui:
+          projectKey: "Teste-Devops"
+          organization: "itsleocamargo"
+          projectBaseDir: . 
+          # Você pode adicionar outras propriedades como sonar.projectName aqui, se quiser:
+          # args: >
+          #   -Dsonar.projectName="Meu Projeto Teste"
