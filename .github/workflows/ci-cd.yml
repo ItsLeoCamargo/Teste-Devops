@@ -1,3 +1,5 @@
+name: SonarQube Scan
+
 on:
   push:
     branches:
@@ -7,15 +9,27 @@ on:
       - main
 
 jobs:
-  sonar_scan:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
+          # É necessário um 'fetch depth' maior que 0 para análise correta de pull requests
           fetch-depth: 0
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v4.1.0
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
         env:
+          # Variáveis de ambiente secretas armazenadas nas configurações do repositório
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          
+        with:
+          # Define o diretório base para o scanner (opcional, se não estiver na raiz)
+          projectBaseDir: .
+          # Define propriedades adicionais do scanner (opcional)
+          args: >
+            -Dsonar.projectKey=ItsLeoCamargo_Teste-Devops
+            -Dsonar.organization=ItsLeoCamargo
+            -Dsonar.sources=.
+            -Dsonar.sourceEncoding=UTF-8
+            
