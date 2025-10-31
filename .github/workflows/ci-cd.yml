@@ -25,8 +25,8 @@ jobs:
           # se você estiver usando a ação oficial do SonarSource com SonarCloud.
         with:
           # Propriedades obrigatórias definidas corretamente aqui:
-          projectKey: "Teste-Devops"
-          organization: "itsleocamargo"
+          sonar.projectKey: "Teste-Devops"
+          sonar.organization: "itsleocamargo"
           projectBaseDir: . 
           # Você pode adicionar outras propriedades como sonar.projectName aqui, se quiser:
           # args: >
