@@ -22,6 +22,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
            # Only if using SonarQube Server
         with:
+          projectKey: Teste-Devops
+          organization: itsleocamargo
           projectBaseDir: . # Specify the base directory of your project if needed
           # You can add other SonarQube analysis parameters here, e.g.:
           # sonar.projectKey: "your_project_key"
