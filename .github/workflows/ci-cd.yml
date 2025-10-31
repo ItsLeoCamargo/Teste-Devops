@@ -1,11 +1,9 @@
-name: CI/CD Teste DevOps
+name: CI/CD
 
 on:
   push:
     branches:
       - main
-      - develop
-      - homolog
 
 jobs:
   build:
@@ -14,10 +12,7 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v3
 
-      - name: Validar arquivos do site
-        run: ls -R
-
-  sonar:
+  sonarcloud:
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -25,18 +20,16 @@ jobs:
         uses: actions/checkout@v3
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: sonarsource/sonarqube-scan-action@v5
         with:
-          args: >
-            -Dsonar.projectKey=Teste-Devops
-            -Dsonar.organization=itsleocamargo
-            -Dsonar.sources=.
+          projectKey: Teste-Devops
+          organization: itsleocamargo
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   deploy:
     runs-on: ubuntu-latest
-    needs: sonar
+    needs: sonarcloud
     steps:
       - name: Checkout do código
         uses: actions/checkout@v3
