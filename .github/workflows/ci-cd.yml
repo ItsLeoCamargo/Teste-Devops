@@ -20,7 +20,7 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v5.0.0 # Use the latest version
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} # Only if using SonarQube Server
+           # Only if using SonarQube Server
         with:
           projectBaseDir: . # Specify the base directory of your project if needed
           # You can add other SonarQube analysis parameters here, e.g.:
