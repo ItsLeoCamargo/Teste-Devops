@@ -23,5 +23,5 @@ jobs:
           SONAR_HOST_URL: https://sonarcloud.io
         with:
           args: >
-            -Dsonar.projectKey=itsleocamargo_Teste-Devops
+            -Dsonar.projectKey=Teste-Devops
             -Dsonar.organization=itsleocamargo
