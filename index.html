@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DevOps & IA — Página</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Página simples sobre DevOps e Inteligência Artificial feita com HTML puro e Tailwind." />
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased leading-relaxed">
+  <header class="bg-gradient-to-r from-slate-900 to-indigo-700 text-white">
+    <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-white/10 rounded flex items-center justify-center text-xl">D</div>
+        <div class="text-lg font-medium">DevOps + IA</div>
+      </div>
+      <nav class="hidden md:flex gap-6 text-sm opacity-90">
+        <a href="#about" class="hover:underline">Sobre</a>
+        <a href="#practices" class="hover:underline">Práticas</a>
+        <a href="#tools" class="hover:underline">Ferramentas</a>
+        <a href="#contact" class="hover:underline">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-12">
+    <section class="grid gap-8 md:grid-cols-2 items-center">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-semibold mb-4">Convergência entre DevOps e Inteligência Artificial</h1>
+        <p class="mb-4">Como a cultura de entrega contínua e automação se une à IA para acelerar feedback, testes inteligentes e operações autônomas.</p>
+        <ul class="list-disc pl-5 space-y-2 mb-6">
+          <li>Integração contínua com pipelines inteligentes</li>
+          <li>Observabilidade aumentada por modelos de anomalia</li>
+          <li>Automação de runbooks via agentes orientados por IA</li>
+        </ul>
+        <a href="#practices" class="inline-block px-4 py-2 rounded-md border border-slate-300 hover:bg-slate-100">Ver práticas</a>
+      </div>
+      <div class="bg-white rounded-xl shadow px-6 py-6">
+        <h2 class="text-xl font-medium mb-3">Resumo rápido</h2>
+        <p class="text-sm mb-4">Integre métricas e logs a modelos que priorizam alertas, use testes gerados por IA para casos edge e acelere deploys com checagens automatizadas.</p>
+        <dl class="grid grid-cols-2 gap-4 text-sm">
+          <div>
+            <dt class="text-xs text-slate-500">Pipeline</dt>
+            <dd>CI/CD com gates inteligentes</dd>
+          </div>
+          <div>
+            <dt class="text-xs text-slate-500">Observability</dt>
+            <dd>Anomalias detectadas por ML</dd>
+          </div>
+          <div>
+            <dt class="text-xs text-slate-500">Infra</dt>
+            <dd>Infra como código + policies</dd>
+          </div>
+          <div>
+            <dt class="text-xs text-slate-500">Runbooks</dt>
+            <dd>Automação acionada por intent</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="practices" class="mt-12">
+      <h3 class="text-2xl font-semibold mb-4">Práticas recomendadas</h3>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article class="bg-white rounded-lg shadow p-4">
+          <h4 class="font-medium mb-2">Testes inteligentes</h4>
+          <p class="text-sm">Gerar e priorizar casos de teste com base em cobertura, mudanças de código e criticidade do serviço.</p>
+        </article>
+        <article class="bg-white rounded-lg shadow p-4">
+          <h4 class="font-medium mb-2">Observabilidade aumentada</h4>
+          <p class="text-sm">Analisar logs e métricas com modelos que reduzem ruído e apontam causas raiz.</p>
+        </article>
+        <article class="bg-white rounded-lg shadow p-4">
+          <h4 class="font-medium mb-2">Automação de operações</h4>
+          <p class="text-sm">Bots que executam runbooks e escalonam problemas quando necessário.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tools" class="mt-12">
+      <h3 class="text-2xl font-semibold mb-4">Ferramentas comuns</h3>
+      <div class="flex gap-4 flex-wrap">
+        <span class="px-3 py-1 bg-white rounded shadow text-sm">Git</span>
+        <span class="px-3 py-1 bg-white rounded shadow text-sm">Docker</span>
+        <span class="px-3 py-1 bg-white rounded shadow text-sm">Kubernetes</span>
+        <span class="px-3 py-1 bg-white rounded shadow text-sm">Jenkins / GitHub Actions</span>
+        <span class="px-3 py-1 bg-white rounded shadow text-sm">Prometheus / Grafana</span>
+        <span class="px-3 py-1 bg-white rounded shadow text-sm">ELK / Loki</span>
+        <span class="px-3 py-1 bg-white rounded shadow text-sm">MLflow / Seldon</span>
+      </div>
+
+      <div class="mt-6 bg-white rounded-lg shadow p-4">
+        <h4 class="font-medium mb-3">Exemplo de pipeline (simples)</h4>
+        <pre class="rounded-md p-3 overflow-auto text-xs bg-slate-100"><code>steps:
+  - checkout
+  - build
+  - run tests
+  - model validation
+  - deploy canary
+  - observe & rollback</code></pre>
+      </div>
+    </section>
+
+    <section id="contact" class="mt-12 mb-12 grid gap-6 md:grid-cols-2">
+      <div class="bg-white rounded-lg shadow p-6">
+        <h4 class="font-medium mb-2">Como começar</h4>
+        <ol class="list-decimal pl-5 text-sm space-y-2">
+          <li>Padronize repositório e pipeline</li>
+          <li>Adicione coleta consistente de métricas e logs</li>
+          <li>Treine modelos para detectar anomalias relevantes</li>
+          <li>Automatize runbooks seguros</li>
+        </ol>
+      </div>
+      <div class="bg-white rounded-lg shadow p-6">
+        <h4 class="font-medium mb-2">Contato</h4>
+        <p class="text-sm">Coloque aqui um e-mail ou link para repositório.</p>
+        <div class="mt-4">
+          <a href="#" class="inline-block px-4 py-2 rounded-md border border-slate-300 hover:bg-slate-100 text-sm">Ver repositório</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-white/60 border-t py-6">
+    <div class="max-w-5xl mx-auto px-6 text-sm text-slate-600">Página criada com HTML puro e Tailwind. Use como modelo ou personalize.</div>
+  </footer>
+</body>
+</html>
