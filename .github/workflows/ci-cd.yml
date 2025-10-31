@@ -1,4 +1,4 @@
-name: SonarQube Scan
+name: SonarCloud Scan
 
 on:
   push:
@@ -14,20 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # fetch-depth: 0 # Esta linha não é estritamente necessária se você não precisa da história completa.
-          fetch-depth: 0 # Mantendo conforme seu exemplo, para garantir.
+          fetch-depth: 0
 
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5.0.0
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2.2.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          # Não é necessário definir SONAR_HOST_URL ou SONAR_ORGANIZATION em 'env'
-          # se você estiver usando a ação oficial do SonarSource com SonarCloud.
+          SONAR_HOST_URL: https://sonarcloud.io
         with:
-          # Propriedades obrigatórias definidas corretamente aqui:
-          sonar.projectKey: "Teste-Devops"
-          sonar.organization: "itsleocamargo"
-          projectBaseDir: . 
-          # Você pode adicionar outras propriedades como sonar.projectName aqui, se quiser:
-          # args: >
-          #   -Dsonar.projectName="Meu Projeto Teste"
+          args: >
+            -Dsonar.projectKey=Teste-Devops
+            -Dsonar.organization=itsleocamargo
